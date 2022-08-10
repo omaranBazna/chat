@@ -38,4 +38,7 @@
 }
 .navbar{
   background:rgba(48, 7, 123, 0.908);
+  display:flex;
+  justify-content:space-around;
+  align-items: center;
 }
