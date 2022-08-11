@@ -4,24 +4,30 @@ import { useState, useRef, useEffect } from "react";
 import Message from "./Message";
 
 import { db } from "../firebase";
+
 const Chat = () => {
   const scroll = useRef();
   const [messages, setMessages] = useState([]);
   useEffect(() => {
     const q = query(collection(db, "messages"), orderBy("timestamp"));
+
     const unsubscribe = onSnapshot(q, (querySnapchat) => {
-      let messages = [];
+      let messagesArr = [];
       querySnapchat.forEach((doc) => {
-        messages.push({ ...doc.data, id: doc.id });
+        messagesArr.push({ ...doc.data(), id: doc.id });
       });
-      setMessages(messages);
+      setMessages(messagesArr);
+      console.log(messages);
       return unsubscribe;
     });
-  }, [messages]);
+  }, []);
   return (
     <>
       <main>
-        <Message />
+        {messages &&
+          messages.map((message) => {
+            return <Message key={message.id} message={message} />;
+          })}
       </main>
       <span ref={scroll}></span>
     </>

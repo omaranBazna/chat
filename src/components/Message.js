@@ -1,9 +1,10 @@
 import React from "react";
 
-const Message = () => {
+const Message = ({ message }) => {
   return (
     <div>
       <p>Dave</p>
+      <p>{message.text}</p>
     </div>
   );
 };
