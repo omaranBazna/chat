@@ -5,7 +5,9 @@ const Chat = () => {
   const scroll = useRef();
   return (
     <>
-      <main></main>
+      <main>
+        <Message />
+      </main>
       <span ref={scroll}></span>
     </>
   );
