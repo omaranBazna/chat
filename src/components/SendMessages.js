@@ -2,11 +2,15 @@ import { addDoc } from "firebase/firestore";
 import React from "react";
 import { useState } from "react";
 import { auth, db } from "../firebase";
-import { serverTimestamp } from "firebase/firestore";
+import { serverTimestamp, collection } from "firebase/firestore";
 const SendMessages = () => {
   const [input, setInput] = useState("");
   const sendMessage = async (e) => {
     e.preventDefault();
+    if (input == "") {
+      alert("please Enter some valid message");
+      return;
+    }
     const { uid, displayName } = auth.currentUser;
     await addDoc(collection(db, "messages"), {
       text: input,
@@ -14,6 +18,7 @@ const SendMessages = () => {
       uid,
       timestamp: serverTimestamp(),
     });
+    setInput("");
   };
   return (
     <form onSubmit={sendMessage}>

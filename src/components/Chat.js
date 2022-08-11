@@ -18,7 +18,7 @@ const Chat = () => {
         messagesArr.push({ ...doc.data(), id: doc.id });
       });
       setMessages(messagesArr);
-      console.log(messages);
+
       return unsubscribe;
     });
   }, []);
