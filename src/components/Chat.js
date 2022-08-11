@@ -31,7 +31,7 @@ const Chat = () => {
           })}
       </main>
       <span ref={scroll}></span>
-      <SendMessages />
+      <SendMessages scroll={scroll} />
     </>
   );
 };
