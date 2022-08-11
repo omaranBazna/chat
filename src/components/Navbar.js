@@ -5,11 +5,11 @@ import Signin from "./Signin";
 import Logout from "./Logout";
 export default function Navbar() {
   const [user] = useAuthState(auth);
-  console.log(user);
+
   return (
     <div className="navbar">
       <h1>Chat app</h1>
-      <Signin />
+      {!user ? <Signin /> : <Logout />}
     </div>
   );
 }
