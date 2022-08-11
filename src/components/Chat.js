@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Message from "./Message";
 
 import { db } from "../firebase";
+import SendMessages from "./SendMessages";
 
 const Chat = () => {
   const scroll = useRef();
@@ -30,6 +31,7 @@ const Chat = () => {
           })}
       </main>
       <span ref={scroll}></span>
+      <SendMessages />
     </>
   );
 };
