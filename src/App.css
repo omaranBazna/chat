@@ -56,4 +56,11 @@
 .sender{
   font-size:13px;
 
+
+}
+.form-style{
+  position: fixed;
+  bottom:10px;
+  width:60vw;
+  left:20vw;
 }

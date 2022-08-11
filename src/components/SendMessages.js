@@ -23,7 +23,7 @@ const SendMessages = ({ scroll }) => {
     scroll.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <form onSubmit={sendMessage}>
+    <form className="form-style" onSubmit={sendMessage}>
       <input
         type="text"
         value={input}
