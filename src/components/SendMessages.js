@@ -1,9 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import { auth, db } from "../firebase";
 const SendMessages = () => {
   const [input, setInput] = useState("");
+  const sendMessage = async (e) => {
+    e.preventDefault();
+    const { uid, displayName } = auth.currentUser;
+  };
   return (
-    <form>
+    <form onSubmit={sendMessage}>
       <input
         type="text"
         value={input}
